@@ -69,15 +69,17 @@ pub struct Candidate {
     pub candidate: String,
 
     /// The SDP media type this candidate is intended for.
-    pub sdp_mid: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub sdp_mid: Option<String>,
 
     /// The index of the SDP "m" line this candidate is intended for.
-    pub sdp_m_line_index: UInt,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub sdp_m_line_index: Option<UInt>,
 }
 
 impl Candidate {
     /// Creates a new `Candidate` with the given "a" line, SDP media type and SDP "m" line.
-    pub fn new(candidate: String, sdp_mid: String, sdp_m_line_index: UInt) -> Self {
+    pub fn new(candidate: String, sdp_mid: Option<String>, sdp_m_line_index: Option<UInt>) -> Self {
         Self { candidate, sdp_mid, sdp_m_line_index }
     }
 }

@@ -15,6 +15,7 @@ Breaking changes:
     and `user_can_redact_event_of_other`,
   - `PowerLevelAction::Redact` is split into `RedactOwn` and `RedactOther`.
 - Use `OwnedRoomId` instead of `String` for the `state_key` field of `HierarchySpaceChildEvent`
+- `m.call.candidates` `Candidate` `sdpMLineIndex` and `sdpMid` fields are now `Option`al as per [this spec clarification update](https://github.com/matrix-org/matrix-spec/pull/1742)
 
 Improvements:
 
